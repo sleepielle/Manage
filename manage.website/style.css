@@ -1,66 +1,62 @@
-/*custom properties */
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,500;0,700;1,400&display=swap");
 :root {
-  /*colors*/
   --clr-accent-500: hsl(12, 60%, 45%);
   --clr-accent-400: hsl(12, 88%, 59%);
   --clr-accent-300: hsl(12, 88%, 75%);
-  --clr-accent-100: hsl(228, 39%, 23%);
+  --clr-accent-100: hsl(13, 100%, 96%);
 
   --clr-primary-400: hsl(228, 39%, 23%);
 
   --clr-neutral-900: hsl(232, 12%, 13%);
-  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-100: hsl(0 0% 100%);
 
-  /*font family*/
   --ff-primary: "Be Vietnam Pro", sans-serif;
-  --ff-body: var(--ff-primary);
-  --ff-accent: var(--ff-primary);
 
-  /*font weight*/
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
   --fw-regular: 400;
-  --fw-semibold: 500;
+  --fw-semi-bold: 500;
   --fw-bold: 700;
 
-  /*fontsize*/
   --fs-300: 0.8125rem;
   --fs-400: 0.875rem;
-  /*14 size*/
   --fs-500: 0.9375rem;
-  /*15 size*/
   --fs-600: 1rem;
   --fs-700: 1.875rem;
   --fs-800: 2.5rem;
   --fs-900: 3.5rem;
 
   --fs-body: var(--fs-400);
-  --fs-nav: var(--fs-500);
-  --fs-button: var(--fs-300);
   --fs-primary-heading: var(--fs-800);
   --fs-secondary-heading: var(--fs-700);
+  --fs-nav: var(--fs-500);
+  --fs-button: var(--fs-300);
 
-  /*for margins, paddings*/
-  --size-100: 0.1rem;
+  --size-100: 0.25rem;
   --size-200: 0.5rem;
   --size-300: 0.75rem;
   --size-400: 1rem;
+
+  --size-450: 1.3rem;
   --size-500: 1.5rem;
   --size-600: 2rem;
   --size-700: 3rem;
   --size-800: 4rem;
   --size-900: 5rem;
+  --size-1000: 6rem;
 }
 
-/*desktop screen*/
 @media (min-width: 50em) {
   :root {
     --fs-body: var(--fs-500);
-    --fs-nav: var(--fs-300);
-
     --fs-primary-heading: var(--fs-900);
     --fs-secondary-heading: var(--fs-800);
+
+    --fs-nav: var(--fs-300);
   }
 }
+
+/* https://piccalil.li/blog/a-modern-css-reset
 
 /* Box sizing rules */
 *,
@@ -69,11 +65,11 @@
   box-sizing: border-box;
 }
 
+/* Remove default margin */
 * {
   margin: 0;
   padding: 0;
   font: inherit;
-  /*resets the font sizes of every h1, h2, etc default*/
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -90,7 +86,6 @@ html:focus-within {
 html,
 body {
   height: 100%;
-  /*Helps to avoid rare circunstances, like double bars.*/
 }
 
 /* Set core body defaults */
@@ -109,12 +104,10 @@ img,
 picture,
 svg {
   max-width: 100%;
-  /*so that it takes 100% of the space of its parent div*/
   display: block;
-  /*takes the minimum amount of space possible*/
 }
 
-/* Remove all animations and transitions for people that prefer not to see them */
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -130,65 +123,221 @@ svg {
   }
 }
 
-/*preferred reduced, not 0 motion*/
-
-/*utily classes based on variables*/
-.text-primary-400 {
+body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
   color: var(--clr-primary-400);
 }
 
-.text-accent-400 {
+p:not([class]) {
+  opacity: 0.7;
+  max-width: 32ch;
+}
+
+p[data-width="wide"] {
+  max-width: 42ch;
+}
+/* button */
+
+.button {
+  display: inline-flex;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  border-radius: 100vmax;
+  padding: 1.25em 2.5em;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-button);
+  line-height: 1;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-accent-400);
+  box-shadow: 0 1.125em 1em -1em var(--clr-accent-500);
+}
+
+.button[data-type="inverted"] {
+  background-color: var(--clr-neutral-100);
   color: var(--clr-accent-400);
 }
 
+.button:hover,
+.button:focus-visible {
+  background-color: var(--clr-accent-300);
+}
+
+.button[data-type="inverted"]:hover,
+.button[data-type="inverted"]:focus-visible {
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-accent-300);
+}
+
+.bg-container {
+}
+
+/* navigation */
+
+.primary-header {
+  padding-top: var(--size-700);
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.nav-list {
+  font-size: var(--fs-nav);
+  display: inline-flex;
+  gap: clamp(var(--size-400), 5vw, var(--size-700));
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--clr-primary-400);
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  color: var(--clr-accent-400);
+}
+
+.footer-nav {
+  columns: 2;
+}
+.footer-nav a {
+  color: var(--clr-neutral-100);
+  text-decoration: none;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: var(--clr-accent-400);
+}
+/* Utility classes */
+
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+  position: relative;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+.justify-self-end {
+  justify-self: flex-end;
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+.flow * + * {
+  margin-top: var(--flow-spacer, 3em);
+}
+
+.cta {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.positioning {
+  position: absolute;
+  height: 100%;
+}
+
+/*social list**/
+.social-list {
+  display: flex;
+  gap: var(--size-400);
+}
+
+/*for mobile**/
+.social-icon {
+  aspect-ratio: 1;
+  width: var(--size-600);
+  fill: var(--clr-neutral-100);
+}
+
+.social-list a:is(:hover, :focus) .social-icon {
+  fill: var(--clr-accent-400);
+}
+
+@media (min-width: 50em) {
+  .social-icon {
+    width: var(--size-500);
+    fill: var(--clr-neutral-100);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.text-primary-400 {
+  color: var(--clr-primary-400);
+}
+.text-accent-400 {
+  color: var(--clr-accent-400);
+}
 .text-accent-100 {
   color: var(--clr-accent-100);
 }
-
 .text-neutral-100 {
   color: var(--clr-neutral-100);
 }
-
-.text-netural-900 {
+.text-neutral-900 {
   color: var(--clr-neutral-900);
 }
 
 .bg-primary-400 {
   background-color: var(--clr-primary-400);
 }
-
 .bg-accent-400 {
   background-color: var(--clr-accent-400);
 }
-
 .bg-accent-100 {
   background-color: var(--clr-accent-100);
 }
-
 .bg-neutral-100 {
   background-color: var(--clr-neutral-100);
 }
-
 .bg-neutral-900 {
   background-color: var(--clr-neutral-900);
 }
 
-.fw-regular {
-  font-weight: var(--fw-regular);
-}
-.fw-semibold {
-  font-weight: var(--fw-semibold);
-}
-
 .fw-bold {
   font-weight: var(--fw-bold);
+}
+.fw-semi-bold {
+  font-weight: var(--fw-semi-bold);
+}
+.fw-regular {
+  font-weight: var(--fw-regular);
 }
 
 .fs-primary-heading {
   font-size: var(--fs-primary-heading);
   line-height: 1.1;
 }
-
 .fs-secondary-heading {
   font-size: var(--fs-secondary-heading);
   line-height: 1.1;
@@ -207,79 +356,80 @@ svg {
   font-size: var(--fs-600);
 }
 
-.container {
-  --max-width: 1110px; /*El tamaño del contenedor más grande*/
-  --horizontal-padding: 1rem; /*side of page for screen sizes*/
-  /*custom props for easier reading*/
-
-  width: min(
-    var(--max-width),
-    100% - (var(--horizontal-padding) * 2)
-  ); /*agarra el minimo de los dos valores que le estamos dando cuando 
-  la pantalla esté agrandandose o chicandose*/
-  margin-inline: auto; /*both left and right are being set and centers it*/
-}
-
-.even-columns {
-  display: grid;
-  gap: 1rem;
-}
-
-/*top and bottom padding, leaving the sides as is.*/
 .padding-block-900 {
-  padding-block: var(--size-900);
+  padding-block: var(--size-1000);
 }
 .padding-block-700 {
   padding-block: var(--size-700);
 }
 
-/*using em ::after
-
-unit is consistent in all browsers when zoom in/out.
-em or rem, in a media querry, it is not using a root-fontsize. It doesnt
-change what the 50em is. it looks at the default browser settings.
-*/
-
+.display-sm-none {
+  display: none;
+}
 @media (min-width: 50em) {
-  .even-columns {
-    grid-auto-flow: column; /*creates the columns*/
-    grid-auto-columns: 1fr; /*makes the columns have even spacing.*/
+  .display-md-inline-flex {
+    display: inline-flex;
   }
 }
 
-/*General stylings*/
-body {
-  font-size: var(--fs-body);
-  font-family: var(--ff-body);
-  color: var(--clr-primary-400); /**/
+@media (max-width: 50em) {
+  .primary-navigation {
+    display: none;
+    position: fixed;
+    padding: var(--size-700);
+    inset: 7rem var(--size-400) auto;
+    max-width: 25rem;
+    margin-left: auto;
+    background: var(--clr-neutral-100);
+    border-radius: var(--size-100);
+    box-shadow: 0 0 0.75em rgb(0, 0, 0, 0.05);
+  }
+
+  .primary-header[data-overlay]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    /* height: 100vh; */
+    background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8));
+  }
+
+  .nav-list {
+    display: grid;
+    gap: var(--size-600);
+    text-align: center;
+    font-weight: var(--fw-bold);
+  }
+
+  .primary-navigation[data-visible] {
+    display: block;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: fixed;
+    top: var(--size-600);
+    right: var(--size-400);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0.5em;
+  }
+
+  .mobile-nav-toggle .icon-close {
+    display: none;
+  }
+
+  p:not([class]) {
+    max-width: 40ch;
+    font-size: var(--size-450);
+    justify-content: center;
+    padding: 0 0 0 10%;
+  }
 }
 
-/*button*/
-.button {
-  border: 0;
-  border-radius: 100vmax;
-  padding: 1.5em 2.5em;
-  box-shadow: 0 1.25em 1em -1em var(--clr-accent-500);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-button);
-  color: var(--clr-neutral-100); /*color del texto*/
-  background-color: var(--clr-accent-400);
-
-  cursor: pointer;
-  text-decoration: none;
-  line-height: 1;
-}
-
-.button[data-type="inverted"] {
-  background-color: var(--clr-neutral-100);
-  color: var(--clr-accent-400);
-}
-.button[data-type="inverted"]:hover,
-.button[data-type="inverted"]:focus-visible {
-  background-color: var(--clr-neutral-100);
-  color: var(--clr-accent-300);
-}
-.button:hover,
-.button:focus-visible {
-  background-color: var(--clr-accent-300);
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
 }
