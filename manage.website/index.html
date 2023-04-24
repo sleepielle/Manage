@@ -140,19 +140,18 @@
               What they've said
             </h2>
             <!--carousel here-->
-            <button class="button">Get started</button>
+            <button class="button" data-section="carousel">Get started</button>
           </section>
 
           <div class="  cta bg-accent-400 text-neutral-10" >
             <img src="/manage.website/images/bg-simplify-section-desktop.svg" alt="aa" class="positioning">  
             <div class="container">
-              <div class="even-columns vertical-align-center padding-block-900">
-                <div>
-                  <p class="fs-secondary-heading fw-bold">
+              <div class="even-columns padding-block-900">
+               
+                  <p class="fs-secondary-heading fw-bold" data-section="cta">
                     Simplify how your team works today.
                   </p>
-                </div>
-
+               
                 <div class="justify-self-end">
                   <button class="button" data-type="inverted">
                     Get started
@@ -167,17 +166,17 @@
           </div>
         </main>
 
-        <footer class="padding-block-700 bg-neutral-900 text-neutral-100">
+        <footer class="primary-footer | padding-block-700 bg-neutral-900 text-neutral-100">
           <div class="container">
-            <div class="even-columns">
+            <div class="primary-footer-wrapper | even-columns">
               <div>
                 <a href="#"
                   ><img
                     src="/manage.website/images/logowhite.svg"
-                    alt="logo of Manage img"
+                    alt="logo of Manage img" class="logoManage"
                 /></a>
-
-               
+              </div>
+                <div>
                 <ul role="list" class="social-list" aria-label="Social links">
                   <li >
                     <a aria-label="facebook" href="#"> 
@@ -214,9 +213,9 @@
                 </ul>
               </div>
 
-              <div>
+          
                 <nav class="footer-nav">
-                  <ul role="list" aria-label="footer">
+                  <ul role="list" aria-label="footer" class="ul-footer">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Pricing</a></li>
                     <li><a href="#">Products</a></li>
@@ -226,18 +225,24 @@
                     <li><a href="#">Privacy Policy</a></li>
                   </ul>
                 </nav>
-              </div>
+           
 
               <!--El div es inline, entonces lo pone todo junto-->
-              <div>
-                <form action="">
-                  <input type="email" />
-                  <button class="button">Go</button>
+              <div >
+                <form action="" class="form-nav">
+                  <input type="email" class="form-nav-move" placeholder="janedoe@gmail.com          "/>
+                  <button class="button form-nav-move"  >Go</button>
+              
                 </form>
-                <div style="padding-block: 5rem">
-                  <p>Copyright 2020. All Rights Reserved</p>
-                </div>
               </div>
+
+              <div>
+                <p class="copy">Copyright 2020. All Rights Reserved</p>
+              
+              </div>
+             
+                
+              
             </div>
           </div>
         </footer>
