@@ -16,15 +16,20 @@
 </head>
 
 <body>
-  <header class="primary-header">
+  <div class="image-with-blob-bg"></div>
+  <header class="primary-header" >
+ 
+ 
+    
     <div class="container">
       <div class="nav-wrapper">
+        
         <a href="#"><img src="images/logo.svg" alt="logo of manage" /></a>
 
         <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-          <img class="icon-hamburger" src="/manage.website/images/icon-hamburger.svg" alt="" aria-hidden="true" />
+          <img class="toggle-icon" src="/manage.website/images/icon-hamburger.svg" alt="" aria-hidden="true" />
 
-          <img class="icon-close" src="/manage.website/images/icon-close.svg" alt="" aria-hidden="true" ; />
+    
 
           <span class="visually-hidden">Menu</span>
         </button>
@@ -47,7 +52,9 @@
   <main>
     <section class="padding-block-700">
       <div class="container">
-        <div class="even-columns">
+        <div class="even-columns mobile-grid">
+
+       
 
           <div class="flow text-center">
             <h1 class="fs-primary-heading fw-bold">
@@ -57,11 +64,12 @@
               Manage makes it simple for software teams to plan day-to-day
               tasks while keeping the larger team goals in view.
             </p>
-            <button class="button">Get Started</button>
+            <button class="button" data-text="getStarted">Get Started</button>
           </div>
-          <div>
+          <div >
             <img src="images/illustration-intro.svg" alt="intro" />
           </div>
+
         </div>
       </div>
       </div>
@@ -176,22 +184,23 @@
             sync without being intrusive."</p>
         </li>
       </ul>
-      <button class="button" style="margin-top:2.2rem" data-section="carousel">Get started</button>
+      <button class="button" style="margin-top:2.2rem" data-text="getStarted">Get started</button>
     </section>
 
     <div class=" cta bg-accent-400 text-neutral-10">
-      <img src="/manage.website/images/bg-simplify-section-desktop.svg" alt="aa" class="positioning">
+      <img src="/manage.website/images/bg-simplify-section-desktop.svg" alt="aa" class="position" data-section="desktop">
+      <img src="/manage.website/images/bg-simplify-section-mobile.svg" alt="aa" class="position" data-section="mobile">
       <div class="container">
-        <div class="even-columns padding-block-900 ">
+        <div class="even-columns padding-block-900">
 
-          <div>
+    
             <h2 class="fs-secondary-heading fw-bold" data-section="cta">
               Simplify how your team works today.
             </h2>
 
-          </div>
 
-          <div class="justify-self-end">
+
+          <div class="justify-self-end margin-5-rem">
             <button class="button" data-type="inverted">
               Get started
             </button>
